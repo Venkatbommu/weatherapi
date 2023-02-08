@@ -18,19 +18,17 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: dist-files
-          path: |
-               dist
-               package.json
+          path: dist
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Get code
-        uses: actions/checkout@v3.3.0
-      - name: Install NodeJS
-        uses: actions/setup-node@v3.6.0
-        with:
-          node-version: 18
+      - name: Get Build Artifacts
+        uses: actions/download-artifact@v3.0.2
+        with: 
+           name: dist-files
+      - name: Output contents
+        run: ls
       - name: Deploy
         run: echo '...deploying'
     
