@@ -1,4 +1,4 @@
-name: ReactNew APplication
+name: ReactNew Application
 on: [push,workflow_dispatch]
 jobs:
   build:
